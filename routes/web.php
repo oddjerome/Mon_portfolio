@@ -5,6 +5,23 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\AdminController;
+use Illuminate\Http\Request;
+
+// ----------------------
+// Routes ADMIN (protégées par auth + is_admin)
+// ----------------------
+Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
+    Route::get('/', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
+
+    // CRUD Projets (sauf index + show car publics)
+    Route::resource('projects', ProjectController::class)->except(['index', 'show']);
+
+    // CRUD Articles (sauf index + show car publics)
+    Route::resource('posts', PostController::class)->except(['index', 'show']);
+
+    // Messages (juste consultation et suppression)
+    Route::resource('messages', MessageController::class)->only(['index', 'show', 'destroy']);
+});
 
 // ----------------------
 // Routes PUBLIQUES
@@ -24,21 +41,7 @@ Route::get('/blog/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/contact', [MessageController::class, 'create'])->name('contact');
 Route::post('/contact', [MessageController::class, 'store'])->name('contact.store');
 
-// ----------------------
-// Routes ADMIN (protégées par auth + is_admin)
-// ----------------------
-Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
 
-    // CRUD Projets (sauf index + show car publics)
-    Route::resource('projects', ProjectController::class)->except(['index', 'show']);
-
-    // CRUD Articles (sauf index + show car publics)
-    Route::resource('posts', PostController::class)->except(['index', 'show']);
-
-    // Messages (juste consultation et suppression)
-    Route::resource('messages', MessageController::class)->only(['index', 'show', 'destroy']);
-});
 
 // ----------------------
 // Auth (Breeze/Fortify déjà installé)
