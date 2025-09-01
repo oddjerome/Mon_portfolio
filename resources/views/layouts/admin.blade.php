@@ -16,8 +16,34 @@
             <li class="nav-item"><a href="{{ route('projects.create') }}" class="nav-link text-white">Ajouter Projet</a></li>
             <li class="nav-item"><a href="{{ route('posts.create') }}" class="nav-link text-white">Ajouter Article</a></li>
             <li class="nav-item"><a href="{{ route('messages.index') }}" class="nav-link text-white">Messages</a></li>
+            <li class="nav-item mt-3">
+                <a href="{{ route('logout') }}" class="nav-link text-danger"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                    Déconnexion
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </li>
+
         </ul>
     </div>
+
+    <!-- Flash messages -->
+    @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    @endif
+
+    @if(session('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    @endif
+
 
     <!-- Contenu -->
     <div class="flex-grow-1 p-4">

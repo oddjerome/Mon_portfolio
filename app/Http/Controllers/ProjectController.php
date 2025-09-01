@@ -13,6 +13,7 @@ class ProjectController extends Controller
         $projects = Project::latest()->get();
         return view('projects.index', compact('projects'));
     }
+    
 
     // Affichage d’un projet spécifique
     public function show(Project $project)
