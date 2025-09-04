@@ -23,8 +23,8 @@
                 <td>{{ $msg->subject }}</td>
                 <td>{{ $msg->created_at->format('d/m/Y H:i') }}</td>
                 <td>
-                    <a href="{{ route('messages.show', $msg->id) }}" class="btn btn-info btn-sm">Voir</a>
-                    <form action="{{ route('messages.destroy', $msg->id) }}" method="POST" class="d-inline">
+                    <a href="{{ route('admin.messages.show', $msg->id) }}" class="btn btn-info btn-sm">Voir</a>
+                    <form action="{{ route('admin.messages.destroy', $msg->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger btn-sm" onclick="return confirm('Supprimer ce message ?')">Supprimer</button>

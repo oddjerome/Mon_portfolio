@@ -5,7 +5,7 @@
 @section('content')
     <h2 class="mb-4">Ajouter un nouvel article</h2>
 
-    <form action="{{ route('posts.store') }}" method="POST">
+    <form action="{{ route('admin.posts.store') }}" method="POST">
         @csrf
 
         <div class="mb-3">

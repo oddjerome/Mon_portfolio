@@ -29,8 +29,8 @@ Route::post('/contact', [MessageController::class, 'store'])->name('contact.stor
 // ----------------------
 // Routes ADMIN (protégées par auth + is_admin)
 // ----------------------
-Route::middleware(['auth', 'is_admin'])->prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+Route::middleware(['auth', 'is_admin'])->prefix('admin')->as('admin.')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('dashboard');
 
     // CRUD Projets (admin uniquement)
     Route::resource('projects', AdminProjectController::class)->except(['show']);

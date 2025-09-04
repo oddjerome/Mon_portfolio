@@ -6,7 +6,7 @@
     <h1 class="mb-4">Gestion des Projets</h1>
 
     <!-- Bouton pour ajouter un projet -->
-    <a href="{{ route('projects.create') }}" class="btn btn-primary mb-3">+ Ajouter un projet</a>
+    <a href="{{ route('admin.projects.create') }}" class="btn btn-primary mb-3">+ Ajouter un projet</a>
 
     <!-- Tableau des projets -->
     <table class="table table-bordered table-hover align-middle">
@@ -34,9 +34,9 @@
                     </td>
                     <td>{{ $project->created_at->format('d/m/Y') }}</td>
                     <td>
-                        <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-warning btn-sm">Modifier</a>
+                        <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-warning btn-sm">Modifier</a>
                         
-                        <form action="{{ route('projects.destroy', $project->id) }}" method="POST" class="d-inline"
+                        <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST" class="d-inline"
                               onsubmit="return confirm('Supprimer ce projet ?')">
                             @csrf
                             @method('DELETE')

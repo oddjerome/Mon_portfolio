@@ -6,7 +6,7 @@
     <h1 class="mb-4">Gestion des Articles</h1>
 
     <!-- Bouton pour ajouter un article -->
-    <a href="{{ route('posts.create') }}" class="btn btn-primary mb-3">+ Ajouter un article</a>
+    <a href="{{ route('admin.posts.create') }}" class="btn btn-primary mb-3">+ Ajouter un article</a>
 
     <!-- Tableau des articles -->
     <table class="table table-bordered table-hover align-middle">
@@ -25,9 +25,9 @@
                     <td>{{ $post->author ?? 'Inconnu' }}</td>
                     <td>{{ $post->created_at->format('d/m/Y') }}</td>
                     <td>
-                        <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-warning btn-sm">Modifier</a>
+                        <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning btn-sm">Modifier</a>
                         
-                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST" class="d-inline"
+                        <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST" class="d-inline"
                               onsubmit="return confirm('Supprimer cet article ?')">
                             @csrf
                             @method('DELETE')
