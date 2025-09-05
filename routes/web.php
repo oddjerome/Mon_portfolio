@@ -7,13 +7,17 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
+use App\Http\Controllers\HomeController;
 
 // ----------------------
 // Routes PUBLIQUES
 // ----------------------
 
-// Page d’accueil = liste des projets
-Route::get('/', [ProjectController::class, 'index'])->name('home');
+// Page d'acceuil
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+//Liste des projets
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
 
 // Détails d’un projet
 Route::get('/projects/{project}', [ProjectController::class, 'show'])->name('projects.show');

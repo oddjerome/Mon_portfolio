@@ -7,7 +7,41 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script>
+        const toggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+
+        // Charger l’état sauvegardé
+        if(localStorage.getItem('dark-mode') === 'enabled') {
+            body.classList.add('dark-mode');
+        }
+
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if(body.classList.contains('dark-mode')){
+                localStorage.setItem('dark-mode','enabled');
+            } else {
+                localStorage.setItem('dark-mode','disabled');
+            }
+        });
+    </script>
+
+    <style>
+    /* Styles Dark Mode */
+    .dark-mode {
+        background-color: #121212 !important;
+        color: #e0e0e0 !important;
+    }
+    .dark-mode .navbar, .dark-mode footer {
+        background-color: #1f1f1f !important;
+    }
+    .dark-mode .card {
+        background-color: #1e1e1e !important;
+        color: #e0e0e0 !important;
+    }
+    </style>
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
@@ -26,6 +60,7 @@
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('projects.index') }}">Projets</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('posts.index') }}">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">Contact</a></li>
 
@@ -51,6 +86,9 @@
                         {{-- Bouton connexion --}}
                         <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Connexion</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Inscription</a></li>
+                        <li class="nav-item">
+                            <button id="darkModeToggle" class="btn btn-sm btn-outline-light ms-2">🌙</button>
+                        </li>
                     @endauth
 
                 </ul>
