@@ -26,6 +26,7 @@
                 <li class="nav-item"><a href="{{ route('admin.projects.create') }}" class="nav-link text-white">Ajouter Projet</a></li>
                 <li class="nav-item"><a href="{{ route('admin.posts.create') }}" class="nav-link text-white">Ajouter Article</a></li>
                 <li class="nav-item"><a href="{{ route('admin.messages.index') }}" class="nav-link text-white">Messages</a></li>
+                <li class="nav-item"><a href="{{ route('admin.comments.index') }}" class="nav-link text-white">Commentaires</a></li>
             </ul>
         </div>
 

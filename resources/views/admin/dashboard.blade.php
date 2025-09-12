@@ -37,5 +37,15 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-4">
+            <div class="card text-white bg-warning mb-3 shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Commentaires</h5>
+                    <p class="card-text display-6">{{ $messagesCount }}</p>
+                    <a href="{{ route('admin.comments.index') }}" class="btn btn-light btn-sm">Voir</a>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

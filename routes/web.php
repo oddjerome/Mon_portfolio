@@ -44,7 +44,19 @@ Route::middleware(['auth', 'is_admin'])->prefix('admin')->as('admin.')->group(fu
 
     // Messages (juste consultation et suppression)
     Route::resource('messages', MessageController::class)->only(['index', 'show', 'destroy']);
+
+    // ✅ Nouveau pour modérer les commentaires
+    Route::resource('comments', \App\Http\Controllers\Admin\CommentController::class)->only(['index','destroy']);
 });
+
+// ----------------------
+// Routes USER (protégées par auth)
+// ----------------------
+Route::middleware(['auth'])->group(function () {
+    Route::post('/posts/{post}/comments', [App\Http\Controllers\CommentController::class, 'store'])
+         ->name('comments.store');
+});
+
 
 // ----------------------
 // Auth (Breeze/Fortify déjà installé)
