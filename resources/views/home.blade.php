@@ -40,9 +40,10 @@
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
                         <h5 class="card-title">Projet 1</h5>
-                        <p class="card-text">Application Laravel avec gestion d’articles et authentification.</p>
-                        <a href="#" class="btn btn-primary btn-sm">Voir</a>
-                        <a href="https://github.com/oddjerome/CreditCardFraud.git" class="btn btn-outline-dark btn-sm">GitHub</a>
+                        <p class="card-text">Application Laravel avec gestion efficace d’évènements.</p>
+                        {{-- <a href="#" class="btn btn-primary btn-sm">Voir</a> --}}
+                        <a href="https://github.com/oddjerome/Mon_portfolio.git"
+                            class="btn btn-outline-dark btn-sm">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -50,9 +51,10 @@
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
                         <h5 class="card-title">Projet 2</h5>
-                        <p class="card-text">Analyse de données en Python avec Pandas & Matplotlib.</p>
-                        <a href="#" class="btn btn-primary btn-sm">Voir</a>
-                        <a href="#" class="btn btn-outline-dark btn-sm">GitHub</a>
+                        <p class="card-text">Application Laravel pour une gestion efficace de Bibliothèque physique.</p>
+                        {{-- <a href="#" class="btn btn-primary btn-sm">Voir</a> --}}
+                        <a href="https://github.com/oddjerome/gestion_bibliotheque.git"
+                            class="btn btn-outline-dark btn-sm">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -60,9 +62,10 @@
                 <div class="card shadow-sm h-100">
                     <div class="card-body">
                         <h5 class="card-title">Projet 3</h5>
-                        <p class="card-text">Site e-commerce simple avec Laravel + Stripe.</p>
-                        <a href="#" class="btn btn-primary btn-sm">Voir</a>
-                        <a href="#" class="btn btn-outline-dark btn-sm">GitHub</a>
+                        <p class="card-text">Application web de recherche d'images basée sur le contenu (CBIR).</p>
+                        {{-- <a href="#" class="btn btn-primary btn-sm">Voir</a> --}}
+                        <a href="https://github.com/oddjerome/prjFaceRecognition.git"
+                            class="btn btn-outline-dark btn-sm">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -106,8 +109,10 @@
             <li class="list-group-item bg-transparent text-light">2014-2023 – Responsable de la performance logistique d’un
                 entrepôt : optimisation des stocks, coordination des flux, conformité réglementaire, amélioration continue,
                 maîtrise des outils de gestion, et encadrement d’une équipe de plus de 15 collaborateurs. </li>
-            <li class="list-group-item bg-transparent text-light">2011-2014 – Collection et traitement des données dans un
-                logiciel comptable
+            <li class="list-group-item bg-transparent text-light">2011-2014 – Responsable du bon fonctionnement
+                administratif, la coordination logistique des équipes, la gestion du personnel, l’organisation des réunions
+                et déplacements, la production de documents professionnels, ainsi que le traitement efficace des tâches de
+                bureau.
             </li>
         </ul>
     </div>

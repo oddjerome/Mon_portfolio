@@ -28,31 +28,6 @@
     .dark-mode .nav-link {
         color: #90caf9 !important;
     }
-
-    /* Texte adaptatif */
-    .hero-text {
-        color: #f5f5f5; /* couleur douce sur fond sombre */
-        transition: color 0.3s ease-in-out;
-    }
-    body:not(.dark-mode) .hero-text {
-        color: #222; /* texte sombre quand fond clair */
-    }
-
-    /* Animation d’apparition */
-    .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 1.2s forwards;
-    }
-    .fade-in-delay {
-        animation-delay: 0.5s;
-    }
-    @keyframes fadeInUp {
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
     </style>
 </head>
 <body class="dark-mode d-flex flex-column" style="min-height: 100vh;">
@@ -136,5 +111,30 @@
             @yield('content')
         </div>
     </div>
+
+    <!-- Bootstrap JS (nécessaire pour le menu mobile) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Script Dark Mode -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggle = document.getElementById('darkModeToggle');
+            const body = document.body;
+
+            if (localStorage.getItem('dark-mode') !== 'disabled') {
+                body.classList.add('dark-mode');
+                localStorage.setItem('dark-mode', 'enabled');
+            }
+
+            toggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('dark-mode', 'enabled');
+                } else {
+                    localStorage.setItem('dark-mode', 'disabled');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
